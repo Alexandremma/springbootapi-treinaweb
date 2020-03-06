@@ -9,7 +9,7 @@ public class Pessoa {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column
+    @Column(nullable = false)
     private String nome;
 
     public void setId(Long id) {
