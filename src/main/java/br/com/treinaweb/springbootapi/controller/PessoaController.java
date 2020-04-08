@@ -17,11 +17,13 @@ public class PessoaController {
     @Autowired
     private PessoaRepository _pessoaRepository;
 
+    @CrossOrigin
     @RequestMapping(value = "/pessoa", method = RequestMethod.GET)
     public List<Pessoa> Get() {
         return _pessoaRepository.findAll();
     }
 
+    @CrossOrigin
     @RequestMapping(value = "/pessoa/{id}", method = RequestMethod.GET)
     public ResponseEntity<Pessoa> GetById(@PathVariable(value = "id") long id) {
         Optional<Pessoa> pessoa = _pessoaRepository.findById(id);
@@ -33,6 +35,7 @@ public class PessoaController {
         }
     }
 
+    @CrossOrigin
     @RequestMapping(value = "/pessoa", method = RequestMethod.POST)
     public Pessoa Post(@Valid @RequestBody Pessoa pessoa) {
         _pessoaRepository.save(pessoa);
@@ -40,6 +43,7 @@ public class PessoaController {
         return pessoa;
     }
 
+    @CrossOrigin
     @RequestMapping(value = "/pessoa/{id}", method = RequestMethod.PUT)
     public ResponseEntity<Pessoa> Put(@PathVariable(value = "id") long id,
                                       @Valid @RequestBody Pessoa newPessoa) {
@@ -55,6 +59,7 @@ public class PessoaController {
         }
     }
 
+    @CrossOrigin
     @RequestMapping(value = "/pessoa/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<Object> Delete(@PathVariable(value = "id") long id) {
         Optional<Pessoa> pessoa = _pessoaRepository.findById(id);
